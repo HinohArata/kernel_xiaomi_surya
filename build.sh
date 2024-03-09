@@ -29,10 +29,13 @@ read P
 echo  $P
 
 SECONDS=0 # builtin bash timer
-ZIPNAME="FSociety-surya-$(date '+%Y%m%d-%H%M').zip"
+ZIPNAME="OrtusLight-kernel-surya-$(date '+%Y%m%d-%H%M').zip"
 TC_DIR="/workspace/yuki-clang"
 AK3_DIR="$(pwd)/android/AnyKernel3"
 DEFCONFIG="surya_defconfig"
+
+export KBUILD_BUILD_USER=private_build
+export KBUILD_BUILD_HOST=kyozune
 
 if test -z "$(git rev-parse --show-cdup 2>/dev/null)" &&
    head=$(git rev-parse --verify HEAD 2>/dev/null); then
